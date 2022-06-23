@@ -19,21 +19,15 @@ import numpy as np
 import tensorflow as tf
 from tensorflow import keras
 
-class myCallback(tf.keras.callbacks.Callback):
-    def on_epoch_end(self, epoch, logs={}):
-        if(logs.get('loss')<1e-3):
-            print("\nTarget telah dicapai, berhenti training !!!")
-            self.model.stop_training = True
 
 def solution_B1():
     # DO NOT CHANGE THIS CODE
     X = np.array([1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0], dtype=float)
     Y = np.array([5.0, 7.0, 9.0, 11.0, 13.0, 15.0, 17.0], dtype=float)
 
-    callback = myCallback()
     model = keras.Sequential([keras.layers.Dense(units=1, input_shape=[1])])
     model.compile(optimizer='sgd', loss='mean_squared_error')
-    model.fit(X,Y, epochs=1000, callbacks=callback)
+    model.fit(X,Y, epochs=1000)
 
     print(model.predict([-2.0, 10.0]))
     return model
