@@ -15,7 +15,6 @@ from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 import tensorflow as tf
 import pandas as pd
-import numpy as np
 
 
 def solution_B4():
